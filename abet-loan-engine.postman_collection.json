@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "8fdab5c2-e88a-4c93-a042-c6238cee6088",
+		"name": "abet-loan-engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7052707"
+	},
+	"item": [
+		{
+			"name": "create loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"foobar-1\",\n    \"borrowerId\": \"9d926144-5c64-4dd6-a397-4d59c139b15e\",\n    \"borrowerName\": \"foo-1\",\n    \"borrowerEmail\": \"foo-1@example.com\",\n    \"borrowerRate\": 3.14159,\n    \"principalAmount\": 3.14159,\n    \"roiRate\": 3.14159,\n    \"staffId\": \"44e0c3a0-380c-41fa-9ecb-2d9abd5b2964\",\n    \"staffName\": \"foo-staff-1\",\n    \"staffEmail\": \"foo-staff-1@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/loan",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all loan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/loan",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/loan/1d108729-50a0-4635-9c34-2d4743c2d326",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan",
+						"1d108729-50a0-4635-9c34-2d4743c2d326"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanID\": \"a856ab54-18b5-443a-bd27-d19dd5f3feb7\",\n    \"staffID\": \"44e0c3a0-380c-41fa-9ecb-2d9abd5b2964\",\n    \"staffEmail\": \"foo-staff-1@example.com\",\n    \"staffName\": \"foo-staff-1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/loan/a856ab54-18b5-443a-bd27-d19dd5f3feb7/approval",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan",
+						"a856ab54-18b5-443a-bd27-d19dd5f3feb7",
+						"approval"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "disburse",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "loanID",
+							"value": "a856ab54-18b5-443a-bd27-d19dd5f3feb7",
+							"type": "text"
+						},
+						{
+							"key": "fieldVisitStaffID",
+							"value": "44e0c3a0-380c-41fa-9ecb-2d9abd5b2964",
+							"type": "text"
+						},
+						{
+							"key": "fieldVisitStaffName",
+							"value": "foo-staff-1",
+							"type": "text"
+						},
+						{
+							"key": "fieldVisitStaffMail",
+							"value": "foo-staff-1@example.com",
+							"type": "text"
+						},
+						{
+							"key": "staffID",
+							"value": "44e0c3a0-380c-41fa-9ecb-2d9abd5b2964",
+							"type": "text"
+						},
+						{
+							"key": "staffName",
+							"value": "foo-staff-1",
+							"type": "text"
+						},
+						{
+							"key": "staffMail",
+							"value": "foo-staff-1@example.com",
+							"type": "text"
+						},
+						{
+							"key": "signedAgreementDocument",
+							"type": "file",
+							"src": "/home/pwn/Downloads/agreement.pdf"
+						},
+						{
+							"key": "documentExtension",
+							"value": ".pdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/v1/loan/a856ab54-18b5-443a-bd27-d19dd5f3feb7/disbursement",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan",
+						"a856ab54-18b5-443a-bd27-d19dd5f3feb7",
+						"disbursement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invest",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanID\": \"a856ab54-18b5-443a-bd27-d19dd5f3feb7\",\n    \"investorID\": \"4d5458a4-8ea9-4957-84cb-a5dd4a7d5d78\",\n    \"investorName\": \"foo-investor-0\",\n    \"investorEmail\": \"foo-investor-0@example.com\",\n    \"investmentAmount\": 0.04\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/loan/a856ab54-18b5-443a-bd27-d19dd5f3feb7/investment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"loan",
+						"a856ab54-18b5-443a-bd27-d19dd5f3feb7",
+						"investment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
