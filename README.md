@@ -60,3 +60,11 @@ shell> make test-cover
 ### Entity Relationship Diagram
 
 ![image](abet-erd.png)
+
+### Additional notes
+
+```
+- abet is a backend service responsible to handle from creation until disbursement
+- abet has no authentication mechanism, assumed request validation is handled by authentication service
+- assuming investor, borrower and staff has their own tables, so this service will fetch data from them too, to get borrower, investor, and staff related data (e.g., investor ID, investor name, investor email, borrower ID, borrower name, borrower email, staff ID, staff name, and staff email)
+```
