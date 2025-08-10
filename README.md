@@ -56,3 +56,7 @@ shell> ./app.backend
 ```
 shell> make test-cover
 ```
+
+### Entity Relationship Diagram
+
+![image](abet-erd.png)
